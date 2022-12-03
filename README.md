@@ -2,7 +2,6 @@
 
 Solutions in Python for [Advent of Code y=2022](https://adventofcode.com/2022); code in `src`, inputs in `data`.
 
-# Progress
 
 <!--- advent_readme_stars table --->
 ## 2022 Results
