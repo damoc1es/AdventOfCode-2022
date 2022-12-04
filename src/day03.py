@@ -19,10 +19,10 @@ def part1(inp: str) -> int:
     s = 0
     for c in common:
         if c.islower():
-            s += (-ord('a')+ord(c)+1)
+            s += (ord(c)-ord('a')+1)
 
         if c.isupper():
-            s += (-ord('A')+ord(c)+27)
+            s += (ord(c)-ord('A')+27)
 
     return s
 
