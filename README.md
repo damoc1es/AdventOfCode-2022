@@ -2,6 +2,7 @@
 
 Solutions in Python for [Advent of Code y=2022](https://adventofcode.com/2022); code in `src`, inputs in `data`.
 
+NOTE: Code was written at 7am, waking up 10 minutes before coding; I'm honestly surprised that it works.
 
 <!--- advent_readme_stars table --->
 ## 2022 Results
