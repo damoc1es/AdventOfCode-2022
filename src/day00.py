@@ -4,11 +4,11 @@ from copy import deepcopy
 DAY = 0
 
 
-def part1(inp: str):
+def part1(inp: list[str]):
     return inp
 
 
-def part2(inp: str):
+def part2(inp: list[str]):
     return ""
 
 
