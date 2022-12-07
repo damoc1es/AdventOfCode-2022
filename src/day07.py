@@ -17,9 +17,10 @@ def size_of_dir(dir_dict: dict, path: str) -> int:
     return size
 
 
-def part1(inp: list[str]) -> int:
+def get_dir_and_sizes(inp: list[str]) -> dict[str, int]:
     dir_dict = {}
     path = ""
+
     for i in range(len(inp)):
         line = inp[i]
 
@@ -37,45 +38,7 @@ def part1(inp: list[str]) -> int:
             i += 1
             lst = []
             st = inp[i].split()
-            while i != len(inp) and st[0] != '$':
-                lst.append((st[0], st[1]))
-
-                i += 1
-                if  i != len(inp):
-                    st = inp[i].split()
-
-            dir_dict[path] = lst;
-
-    all_size = 0
-    for key in dir_dict:
-        K = size_of_dir(dir_dict, key)
-        if K < 100000:
-            all_size += K
-
-    return all_size
-
-
-def part2(inp: list[str]) -> int:
-    dir_dict = {}
-    path = ""
-    for i in range(len(inp)):
-        line = inp[i]
-
-        st = line.split()
-        if st[1] == "cd":
-            if line == "$ cd /":
-                path = "/"
-            elif line == "$ cd ..":
-                path = path[:path.rfind('/')]
-            else:
-                if path != "/":
-                    path += "/"
-                path += st[2]
-        elif line == "$ ls":
-            i += 1
-            lst = []
-            st = inp[i].split()
-            while i != len(inp) and st[0] != '$':
+            while i != len(inp) and st[0] != "$":
                 lst.append((st[0], st[1]))
 
                 i += 1
@@ -87,6 +50,18 @@ def part2(inp: list[str]) -> int:
     dir_all = {}
     for key in dir_dict:
         dir_all[key] = size_of_dir(dir_dict, key)
+    
+    return dir_all
+
+
+def part1(inp: list[str]) -> int:
+    dir_all = get_dir_and_sizes(inp)
+
+    return sum([val for val in dir_all.values() if val < 100000])
+
+
+def part2(inp: list[str]) -> int:
+    dir_all = get_dir_and_sizes(inp)
 
     needed_space = 30000000
     used_space = 70000000-dir_all["/"]
