@@ -45,7 +45,8 @@ def part1(inp: list[str]) -> int:
     return len(unavailable-beacons)
 
 
-def part2(inp: list[str]):
+# shamelessly borrowed
+def part2(inp: list[str]) -> int:
     def z3_abs(x):
         return If(x >= 0, x, -x)
 
