@@ -5,11 +5,12 @@ DAY = 0
 
 
 def part1(inp: list[str]):
-    return inp
+    
+    return 0
 
 
 def part2(inp: list[str]):
-    return ""
+    return 0
 
 
 def read_input_file(filename: str) -> list[str]:
@@ -20,7 +21,7 @@ def read_input_file(filename: str) -> list[str]:
 
 
 if __name__ == '__main__':
-    input_str = read_input_file(f"data/input{DAY}.txt")
+    input_str = read_input_file(f"data/input{DAY:02d}.txt")
     # input_str = read_input_file(f"data/input00.txt")
 
     print(f"Part 1: {part1(input_str)}")
