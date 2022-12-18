@@ -14,14 +14,14 @@ def part1(inp: list[str]) -> int:
     for line in inp:
         cubes.add(tuple(int(t) for t in line.split(',')))
 
-    connected = [0 for _ in range(len(cubes))]
+    not_connected = 0
 
-    for i, (x, y, z) in enumerate(cubes):
+    for (x, y, z) in cubes:
         for cube2 in neighbors(x, y, z):
-            if cube2 in cubes:
-                connected[i] += 1
+            if cube2 not in cubes:
+                not_connected += 1
 
-    return sum([6-connected[i] for i in range(len(connected))])
+    return not_connected
 
 
 def part2(inp: list[str]) -> int:
@@ -45,8 +45,8 @@ def part2(inp: list[str]) -> int:
     def valid(x: int, y: int, z: int) -> bool:
         return (dim[0] <= x < dim[1]) and (dim[0] <= y < dim[1]) and (dim[0] <= z < dim[1])
 
-    S = [(dim[1]-1, dim[1]-1, dim[1]-1)]
 
+    S = [(dim[1]-1, dim[1]-1, dim[1]-1)]
     while len(S) > 0:
         p = S.pop()
         setM(*p)
@@ -54,13 +54,13 @@ def part2(inp: list[str]) -> int:
             if valid(*p2) and not p2 in cubes and M(*p2) == 0 and M not in S:
                 S.append(p2)
     
-    connected = [0 for _ in range(len(cubes))]
-    for i, (x, y, z) in enumerate(cubes):
+    not_connected = 0
+    for (x, y, z) in cubes:
         for cube2 in neighbors(x, y, z):
-            if M(*cube2) == 0 or cube2 in cubes:
-                connected[i] += 1
+            if M(*cube2):
+                not_connected += 1
 
-    return sum([6-connected[i] for i in range(len(connected))])
+    return not_connected
 
 
 def read_input_file(filename: str) -> list[str]:
