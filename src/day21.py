@@ -1,5 +1,3 @@
-import numpy as np
-from copy import deepcopy
 from sympy import sympify, solve
 
 DAY = 21

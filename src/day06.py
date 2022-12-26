@@ -1,6 +1,3 @@
-import numpy as np
-from copy import deepcopy
-
 DAY = 6
 
 
@@ -34,7 +31,7 @@ def read_input_file(filename: str) -> list[str]:
 
 
 if __name__ == '__main__':
-    input_str = read_input_file(f"data/input0{DAY}.txt")
+    input_str = read_input_file(f"data/input{DAY:02d}.txt")
     # input_str = read_input_file(f"data/input00.txt")
 
     print(f"Part 1: {part1(input_str)}")

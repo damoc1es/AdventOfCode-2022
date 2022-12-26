@@ -1,5 +1,3 @@
-import numpy as np
-from copy import deepcopy
 from z3 import *
 
 DAY = 15

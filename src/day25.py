@@ -1,6 +1,3 @@
-import numpy as np
-from copy import deepcopy
-
 DAY = 25
 
 
@@ -31,7 +28,7 @@ def decimal_to_snafu(nr: int) -> str:
     return snafu[::-1]
 
 
-def part1(inp: list[str]):
+def part1(inp: list[str]) -> str:
     numbers = []
     for number in inp:
         numbers.append(snafu_to_decimal(number))
@@ -39,7 +36,7 @@ def part1(inp: list[str]):
     return decimal_to_snafu(sum(numbers))
 
 
-def part2(inp: list[str]):
+def part2(inp: list[str]) -> None:
     return None
 
 

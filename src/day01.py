@@ -1,10 +1,7 @@
-import numpy as np
-from copy import deepcopy
-
 DAY = 1
 
 
-def part1(inp: str) -> int:
+def part1(inp: list[str]) -> int:
     cal = 0
     maxc = -1
 
@@ -20,7 +17,7 @@ def part1(inp: str) -> int:
     return maxc
 
 
-def part2(inp: str) -> int:
+def part2(inp: list[str]) -> int:
     cal = 0
     vec = []
 
@@ -43,7 +40,7 @@ def read_input_file(filename: str) -> list[str]:
 
 
 if __name__ == '__main__':
-    input_str = read_input_file(f"data/input0{DAY}.txt")
+    input_str = read_input_file(f"data/input{DAY:02d}.txt")
 
     print(f"Part 1: {part1(input_str)}")
     print(f"Part 2: {part2(input_str)}")
